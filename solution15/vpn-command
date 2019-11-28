@@ -1,0 +1,4 @@
+sudo openvpn --config nattar-UDP4-1194-vpn-config.ovpn
+
+Auth Username: -
+Auth Password: -

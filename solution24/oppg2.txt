@@ -1,0 +1,6 @@
+"Man må designe systemer under antagelsen at fienden vil
+umiddelbart ha full forståelse og innsikt i dem" -
+
+"Hver gang noen sier at sikkerhetsmekanismene de bruker må være hemmelige for å
+være sikre, er det grunn til å være skeptisk. For, hvis det faktisk er sant at
+de må være hemmelige, så er de heller ikke sikre." -infosec

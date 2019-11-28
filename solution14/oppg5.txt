@@ -1,0 +1,8 @@
+a)
+Hvis vi har et alfabet med 29 tegn, kan vi ha 29! ≈  8.84 * 10^30 forskjellige
+nøkler.
+Svak pga forutsigbare mønstre i språk.
+
+b)
+eks. stavefeil, hoppe over vokaler, L33T-speak, ungå møstre i start og slutt (hilsner),
+snakke litt som Yoda, blande språk

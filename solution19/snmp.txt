@@ -1,0 +1,9 @@
+SSH-er inn på serveren
+
+systemctl status snmpd
+
+snmpwalk -v2c -c public localhost
+
+snmpwalk -v2c -c public localhost
+
+snmpwalk -v2c -c public localhost iso.3.6.1.2.1.1.1.0

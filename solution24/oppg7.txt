@@ -1,0 +1,7 @@
+“Textbook” RSA har flere problemer. For eksempel kan Eva lett klusse med
+chiffertekster:
+Hvis y = x^b er en chiffertekst, kan Eva erstatte den med y' = y * 2^b (mod n)
+siden x^b * 2^b = (2x)^b
+
+Den har også samme problem som blokkchifferne i at samme klartekst alltid
+krypteres til samme chiffertekst.

@@ -1,0 +1,9 @@
+1: Lagring i klartekst.
+
+2: Lagre en kryptert versjon.
+
+3: Lagre en hash av passordene
+
+4: Lagre en saltet hash av passordene
+
+5: Bruke en algoritme spesialisert for passordhashing.

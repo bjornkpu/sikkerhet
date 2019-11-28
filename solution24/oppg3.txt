@@ -1,0 +1,5 @@
+Løser nøkkelproblemet ved å bruke offentlige og
+private nøkler. De offentlige nøklene kan kommuniseres over en åpen linje.
+
+Asymmetrisk kryptografi er ofte så ressurskrevende at man
+bruker det kun til å utveksle nøkler

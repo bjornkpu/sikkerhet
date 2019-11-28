@@ -1,0 +1,2 @@
+9)
+Kjenner vi 'K^-1' finner vi 'K' ved å finne inversen til 'K^-1'

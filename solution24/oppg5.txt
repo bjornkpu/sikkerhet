@@ -1,0 +1,16 @@
+En måte å løse kollisjonsproblemet på er å bruke en strategi inspirert av
+bursdagsproblemet:
+
+Def:
+Hvor mange personer må du ha samlet i et rom før sannsynligheten for at 2 av
+dem har bursdag samme dag overstiger 50%? Svar: 23.
+
+Det betyr at selv om Preimage-problemet er vanskelig å løse, er det mye enklere
+enn man skulle tro å finne kollisjoner ved rett og slett å prøve med tilfeldige
+klartekster. Dette kalles bursdagsangrepet (birthday attack).
+
+Eks:
+Hvis du har en hashfunksjon som hasher til 16-bit-strenger, finnes det 2^16 = 65536
+mulige fingeravtrykk. Allikevel trenger du bare å generere hashen til 300 tilfeldige
+klartekster før det er 50% sannsynlig at du har funnet en kollisjon.
+Kilde: Wikipedia

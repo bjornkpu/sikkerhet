@@ -1,0 +1,3 @@
+sudo traceroute -4I ntnu.no
+sudo traceroute -4I db.no
+sudo traceroute -4I www.unisa.edu.au

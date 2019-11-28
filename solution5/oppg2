@@ -1,0 +1,22 @@
+#!/bin/sh
+echo Setting up home...
+mkdir mock_home && cd mock_home
+
+touch a b c d e.zip
+truncate -s 15K b
+truncate -s 15K d
+truncate -s 15K e.zip
+touch -amt 201801010101 a b e.zip
+
+ls -lah
+cd ..
+
+echo Files crated.
+
+echo Running Compresser...
+find /home/bk/dev/sikkerhet/solution5/mock_home -regextype posix-egrep -not -regex ".*\.(zip|gz)"  -size +10k -atime +6 -exec gzip {} \;
+echo Compression done.
+
+ls -lah mock_home
+rm -rf mock_home
+
